@@ -1,0 +1,190 @@
+{
+  "info": {
+    "name": "Employee Management System - Complete API Collection",
+    "_postman_id": "emp-dept-desig-full",
+    "description": "All CRUD + Advanced + Projections + Mappings APIs for Employee, Department, Designation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "🔹 DESIGNATIONS",
+      "item": [
+        {
+          "name": "1. Create Designation",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"designationName\": \"Software Engineer\",\n  \"level\": \"L3\"\n}"
+            },
+            "url": "{{baseUrl}}/api/designations"
+          }
+        },
+        {
+          "name": "2. Get All Designations",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/designations" }
+        },
+        {
+          "name": "3. Get Designation by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/designations/{{desigId}}" }
+        },
+        {
+          "name": "4. Update Designation",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"designationName\": \"Senior Software Engineer\",\n  \"level\": \"L4\"\n}" },
+            "url": "{{baseUrl}}/api/designations/{{desigId}}"
+          }
+        },
+        {
+          "name": "5. Delete Designation",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/designations/{{desigId}}" }
+        },
+        {
+          "name": "6. Get Designations with Employee Counts",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/designations/with-counts" }
+        },
+        {
+          "name": "7. Get Designations with Employees",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/designations/with-employees" }
+        }
+      ]
+    },
+    {
+      "name": "🔹 DEPARTMENTS",
+      "item": [
+        {
+          "name": "1. Create Department",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"departmentName\": \"Engineering\",\n  \"location\": \"Pune\",\n  \"description\": \"Tech Team\",\n  \"designationIds\": [1, 2],\n  \"headEmployeeId\": 1\n}"
+            },
+            "url": "{{baseUrl}}/api/departments"
+          }
+        },
+        {
+          "name": "2. Get All Departments",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/departments" }
+        },
+        {
+          "name": "3. Get Department by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/departments/{{deptId}}" }
+        },
+        {
+          "name": "4. Update Department",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"departmentName\": \"Advanced Engineering\",\n  \"location\": \"Mumbai\",\n  \"designationIds\": [1]\n}"
+            },
+            "url": "{{baseUrl}}/api/departments/{{deptId}}"
+          }
+        },
+        {
+          "name": "5. Delete Department",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/departments/{{deptId}}" }
+        },
+        {
+          "name": "6. Patch Update Department",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"location\": \"Bangalore\"\n}" },
+            "url": "{{baseUrl}}/api/departments/{{deptId}}"
+          }
+        },
+        {
+          "name": "7. Get Departments by Location",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/departments/location?location=Pune" }
+        },
+        {
+          "name": "8. Get Departments with Employee Counts",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/departments/with-counts" }
+        },
+        {
+          "name": "9. Get Departments with Associations",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/departments/with-associations" }
+        }
+      ]
+    },
+    {
+      "name": "🔹 EMPLOYEES",
+      "item": [
+        {
+          "name": "1. Create Employee",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"empName\": \"John Doe\",\n  \"empEmail\": \"john.doe@company.com\",\n  \"contactNo\": \"9876543210\",\n  \"address\": \"Pune, MH\",\n  \"salary\": 85000.00,\n  \"birthDate\": \"1995-05-15\",\n  \"bloodGroup\": \"O_POSITIVE\",\n  \"departmentId\": 1,\n  \"designationId\": 1\n}"
+            },
+            "url": "{{baseUrl}}/api/employees"
+          }
+        },
+        {
+          "name": "2. Get All Employees",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/employees" }
+        },
+        {
+          "name": "3. Get Employee by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/employees/{{empId}}" }
+        },
+        {
+          "name": "4. Update Employee",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"empName\": \"John Updated\",\n  \"empEmail\": \"john.updated@company.com\",\n  \"departmentId\": 1,\n  \"designationId\": 2\n}"
+            },
+            "url": "{{baseUrl}}/api/employees/{{empId}}"
+          }
+        },
+        {
+          "name": "5. Delete Employee (Soft)",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/employees/{{empId}}" }
+        },
+        {
+          "name": "6. Patch Update Employee",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"salary\": 95000,\n  \"contactNo\": \"9123456789\"\n}" },
+            "url": "{{baseUrl}}/api/employees/{{empId}}"
+          }
+        },
+        {
+          "name": "7. Get Employees by Department",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/employees/department/{{deptId}}" }
+        },
+        {
+          "name": "8. Get Employees by Designation",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/employees/designation/{{desigId}}" }
+        },
+        {
+          "name": "9. Get Basic Projections",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/employees/projections/basic" }
+        },
+        {
+          "name": "10. Get Full Projections (with Dept + Desig)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/employees/projections/full" }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "empId", "value": "1" },
+    { "key": "deptId", "value": "1" },
+    { "key": "desigId", "value": "1" }
+  ]
+}
